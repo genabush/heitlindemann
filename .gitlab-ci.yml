@@ -1,0 +1,28 @@
+image: mklkj/php-node-composer-npm
+
+stages:
+  - lint
+  - deploy
+
+before_script:
+  # Install project dependencies
+  - apt-get install sshpass
+  - composer self-update
+  - npm install -g yarn gulp
+  - npm install npx webpack-cli
+  # Build main app
+  - composer install
+  - yarn install
+  - gulp build --production
+  - npx webpack
+  # Remove fat sources
+  - rm -rf .git
+  - rm -rf node_modules
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    # Deploy to development server
+    - rsync -a --stats --rsh="sshpass -p $DEV_SSH_PASW ssh -o StrictHostKeyChecking=no -l $DEV_SSH_USER" ./ $DEV_SSH_HOST:/var/www/$DEV_SSH_USER/data/www/$DEV_SSH_HOST/wp-content/themes/$PROJECT_NAME/

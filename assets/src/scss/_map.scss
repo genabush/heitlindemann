@@ -1,0 +1,33 @@
+.map {
+  padding: 20px 0 45px 0;
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    color: $red;
+    font-size: 40px;
+    line-height: 1.75;
+    padding-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  &__inner {
+    height: 598px;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  @include res($tablet) {
+    &__inner {
+      height: auto;
+    }
+    &__title {
+      font-size: 30px;
+      line-height: 1.25;
+    }
+  }
+  @include res($phone) {
+    padding: 20px 0 20px 0;
+  }
+}

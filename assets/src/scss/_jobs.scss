@@ -1,0 +1,22 @@
+.jobs {
+  &-block {
+    display: flex;
+    padding-top: 55px;
+  }
+  &__list {
+    font-size: 36px;
+    line-height: 1.55;
+    padding-left: 10px;
+  }
+  &__heading {
+    font-size: 36px;
+    line-height: 1.55;
+    font-weight: bold;
+  }
+  @include res($phone) {
+    &-block {
+      flex-direction: column;
+      padding-top: 40px;
+    }
+  }
+}

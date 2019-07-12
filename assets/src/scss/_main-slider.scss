@@ -1,0 +1,300 @@
+.main-slider {
+  position: relative;
+  &__container.container {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 100px;
+  }
+  &__title,
+  p {
+    background: $red;
+    padding: 2.5px 3px 2px 3px;
+    margin-right: 20px;
+    color: $white;
+    font-size: 57px;
+    line-height: 59px;
+    letter-spacing: 4.5px;
+    display: inline-block;
+    margin-bottom: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: $Calibri;
+    &:nth-of-type(2n + 2) {
+      background: $blue;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__slide {
+    height: 685px;
+    @media (max-width: 1440px) and (max-height: 901px) {
+      height: calc(100vh - 166px)
+    }
+  }
+
+  .slick-dots {
+    display: flex !important;
+    align-items: center;
+    width: auto;
+    position: absolute;
+    bottom: 13px;
+    left: 20px;
+    li {
+      width: 25px;
+      height: 25px;
+      border: 1px solid $white;
+      background: $blue;
+      &.slick-active {
+        background: $red;
+      }
+    }
+    li + li {
+      margin-left: 15px;
+    }
+  }
+  button {
+    font-size: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .container {
+    height: 100%;
+  }
+  .dots-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+  }
+  @include res($tablet) {
+    &__container.container {
+      padding-bottom: 50px;
+    }
+    &__slide {
+      height: 500px;
+    }
+    .main-slider__title,
+    p {
+      font-size: 40px;
+      line-height: 1.05;
+    }
+  }
+  @include res($sm-tablet) {
+    .dots-container {
+      left: 20px;
+    }
+    &__slide {
+      height: 300px;
+    }
+    &__container.container {
+      padding-bottom: 30px;
+    }
+  }
+  @include res($phone) {
+    &__container.container {
+      padding-bottom: 15px;
+    }
+    &__slide {
+      height: 172px;
+    }
+    .main-slider__title,
+    p {
+      font-size: 26px;
+    }
+  }
+  @include res($phone) {
+    .slick-dots {
+      li {
+        width: 10px;
+        height: 10px;
+      }
+      li + li {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.wrapper {
+  .phone {
+    color: $white;
+    position: fixed;
+    top: 260px;
+    right: 0;
+    z-index: 1;
+    &__show_block {
+      width: 156px;
+      margin-left: -1px;
+      padding-right: 55px;
+      height: 92px;
+      background: $red;
+      border-top-left-radius: 46px;
+      border-bottom-left-radius: 46px;
+      transition: all 1s ease-in-out;
+    }
+    &__handset {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    &__hide_block {
+      background: $red;
+      width: 647px;
+      padding: 30px;
+      border-bottom-left-radius: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(647px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      transition: all 1s ease-in-out;
+    }
+    p {
+      font-weight: normal!important;
+      display: block;
+      margin-right: 0;
+      letter-spacing: normal;
+    }
+    p:first-child {
+      font-size: 30px;
+      line-height: 1.33;
+      font-weight: bold!important;
+    }
+    &__description, p,
+    &__heading{
+      font-size: 30px;
+      line-height: 1.33;
+      padding-top: 0;
+      color: #fff;
+      background: none;
+    }
+    &__link {
+      font-size: 40px;
+      line-height: 1;
+      color: $white;
+      padding-top: 10px;
+    }
+    &.active {
+      .phone__show_block {
+        transform: translateX(-647px);
+        transition: all 1s ease-in-out;
+      }
+      .phone__hide_block {
+        transform: translateX(0);
+        transition: all 1s ease-in-out;
+      }
+    }
+  }
+}
+@include res($laptop) {
+  .wrapper {
+    .phone {
+      &__show_block {
+        width: 90px;
+        padding-right: 30px;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+@include res($tablet) {
+  .wrapper {
+    .phone {
+      top: 57px;
+      z-index: 100;
+
+      &__description {
+        text-align: center;
+      }
+      .phone__show_block {
+        display: none;
+      }
+      &.active {
+        .phone__hide_block {
+          width: 100vw;
+        }
+        .phone__hide_block {
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+        }
+      }
+      &__hide_block {
+        top: -2px;
+        align-items: center;
+        justify-content: center;
+        border-bottom-left-radius: 0;
+        padding: 170px 0 170px 0;
+      }
+      .open-btn {
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        background: url(../img/times-solid.svg) 50% 50% no-repeat;
+      }
+    }
+  }
+}
+
+@include res($phone) {
+  .wrapper {
+    .phone {
+      &__description {
+        text-align: left;
+      }
+      &__show_block {
+        width: 92px;
+        padding-right: 0;
+      }
+      &__link {
+        font-size: 24px;
+      }
+      p:first-child,p,
+      &__heading{
+        font-size: 24px;
+      }
+      &__hide_block {
+        align-items: inherit;
+        text-align: left;
+        padding: 115px 10px 115px 10px;
+      }
+    }
+  }
+}
+
+@include res($sm-phone) {
+  .wrapper {
+    .phone {
+      &__hide_block {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+      &__link {
+        font-size: 18px;
+      }
+      p:first-child,p,
+      &__heading{
+        font-size: 18px;
+      }
+    }
+  }
+}
+.home {
+  .main-slider {
+    &__slide:nth-child(even) {
+      background-position: 50% 30%!important;
+    }
+  }
+}

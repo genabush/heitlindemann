@@ -1,0 +1,126 @@
+.wp-block-gallery.multi-slider {
+  margin-top: 85px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: unset;
+  justify-content: space-between;
+  .multi-slider--sm {
+    height: 375px;
+    .blocks-gallery-item {
+      width: 50%;
+      height: 375px;
+    }
+  }
+  .multi-slider--lg {
+    height: 454px;
+    .blocks-gallery-item {
+      width: 50%;
+      height: 454px;
+    }
+  }
+  .slick-arrow {
+    font-size: 0;
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    top: 50%;
+    margin-top: -36px;
+    cursor: pointer;
+    z-index: 1;
+
+  }
+  .slick-next {
+    right: 27%;
+    background: url("../img/arrow_r.svg") 50% 50% no-repeat;
+  }
+  .slick-prev {
+    left: 27%;
+    background: url("../img/arrow_l.svg") 50% 50% no-repeat;
+  }
+  .slick-slide {
+    margin: 0 15px!important;
+  }
+  .slick-list {
+    margin: 0 -15px!important;
+    overflow: hidden;
+  }
+  @include res($laptop) {
+    .slick-prev {
+      left: 20%;
+    }
+    .slick-next {
+      right: 20%;
+    }
+  }
+  @include res($tablet) {
+    height: 300px;
+    .blocks-gallery-item {
+      height: 300px;
+    }
+    .slick-prev {
+      left: 15%;
+    }
+    .slick-next {
+      right: 15%;
+    }
+    .multi-slider--sm {
+      height: 300px;
+      .blocks-gallery-item {
+        height: 300px;
+      }
+    }
+    .multi-slider--lg {
+      height: 300px;
+      .blocks-gallery-item {
+        height: 300px;
+      }
+    }
+  }
+  @include res($phone) {
+    height: 250px;
+    margin-top: 40px;
+    .blocks-gallery-item {
+      height: 250px;
+    }
+    .multi-slider--sm {
+      height: 250px;
+      .blocks-gallery-item {
+        height: 250px;
+      }
+    }
+    .multi-slider--lg {
+      height: 250px;
+      .blocks-gallery-item {
+        height: 250px;
+      }
+    }
+    .slick-arrow {
+      margin-top: -30px;
+      width: 60px;
+      height: 60px;
+      background-size: 100%;
+    }
+    .slick-prev {
+      left: 20px;
+      &:after {
+        content: '';
+        height: 60px;
+      }
+    }
+    .slick-next {
+      right: 20px;
+      &:after {
+        content: '';
+        height: 60px;
+      }
+    }
+  }
+  @include res($phone) {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 600px) {
+  .wp-block-gallery.columns-3 .blocks-gallery-image, .wp-block-gallery.columns-3 .blocks-gallery-item {
+    margin-right: 0!important;
+  }
+}

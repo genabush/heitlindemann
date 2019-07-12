@@ -1,0 +1,20 @@
+{
+    "name": "crispwp/starter",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Luke Kortunov",
+            "email": "ikortunov@crispwp.com"
+        },
+        {
+            "name": "Serhii Khomenko",
+            "email": "skhomenko@crispwp.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Crisp\\" : "inc/classes/" }
+    },
+    "require": {
+        "symfony/var-dumper": "^3.4"
+    }
+}

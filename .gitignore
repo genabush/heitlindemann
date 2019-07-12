@@ -1,0 +1,5 @@
+.idea/
+vendor/
+inc/classes/Component/
+node_modules/
+assets/dist/

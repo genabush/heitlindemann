@@ -1,0 +1,68 @@
+.footer {
+  .sub-menu {
+    display: none;
+  }
+  &__top {
+    background: $blue;
+    padding: 35px 0 77px 0;
+  }
+  &__bottom {
+    background: $red;
+    height: 20px;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    li  {
+      width: 33.33%;
+    }
+  }
+  a {
+    color: $white;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: $Gudea;
+  }
+  @include res($sm-tablet) {
+    &__top {
+      padding: 0;
+    }
+    &__nav {
+      flex-direction: column;
+      justify-content: center;
+    }
+    &__list {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 2px solid $blue-light;
+        padding: 15px 0 10px;
+      }
+    }
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  @include res($phone) {
+    &__list {
+      li {
+        padding: 5px 0 3px 0;
+      }
+      a {
+        padding-bottom: 0;
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+  }
+}
